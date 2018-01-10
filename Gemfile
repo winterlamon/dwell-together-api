@@ -9,6 +9,9 @@ end
 gem 'jwt'
 gem 'figaro'
 
+# Faker for seeding sample data
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
 # Serializers
 gem 'active_model_serializers', '~> 0.10.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
