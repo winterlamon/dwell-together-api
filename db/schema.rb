@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20180110162621) do
     t.string "name"
     t.string "description"
     t.datetime "due_date"
-    t.integer "assigned_to"
+    t.integer "user_id"
     t.integer "list_id"
     t.boolean "completed"
     t.datetime "created_at", null: false
