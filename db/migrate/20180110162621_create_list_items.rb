@@ -4,7 +4,7 @@ class CreateListItems < ActiveRecord::Migration[5.1]
       t.string  :name
       t.string  :description
       t.timestamp :due_date
-      t.integer :user_id
+      t.integer :assigned_to
       t.integer :list_id
       t.boolean :completed
       t.timestamps

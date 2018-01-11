@@ -1,4 +1,4 @@
-class ListItemsController < ApplicationController
+class Api::V1::ListItemsController < ApplicationController
   before_action :set_list_item, only: [:show, :update, :destroy]
 
   # GET /list_items
