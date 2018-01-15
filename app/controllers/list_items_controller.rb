@@ -1,4 +1,4 @@
-class Api::V1::ListItemsController < ApplicationController
+class ListItemsController < ApplicationController
   before_action :set_list_item, only: [:show, :update, :destroy]
 
 
@@ -43,5 +43,5 @@ class Api::V1::ListItemsController < ApplicationController
     def list_item_params
       params.require(:list_item).permit(:name, :description, :due_date, :user_id, :list_id, :completed)
     end
-    
+
 end

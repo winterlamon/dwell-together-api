@@ -1,8 +1,8 @@
-class Api::V1::AuthController < ApplicationController
+class AuthController < ApplicationController
   skip_before_action :authorized, only: [:create, :show]
 
   def create
-    user = User.find_by(username: params[:username])
+    user = User.find_by(email: params[:email])
 
     if user && user.authenticate(params[:password])
       render json: {
@@ -10,14 +10,13 @@ class Api::V1::AuthController < ApplicationController
         first_name: user.first_name,
         last_name: user.last_name,
         email: user.email,
-        username: user.username,
         household_id: user.household_id,
         description: user.description,
         avatar_url: user.avatar_url,
         token: issue_token({id: user.id})
       }
     else
-      render({json: {error: "Oops! We can't find a user with that username and password."}, status: 401})
+      render({json: {error: "Oops! We can't find a user with that email and password."}, status: 401})
     end
   end
 
@@ -28,7 +27,6 @@ class Api::V1::AuthController < ApplicationController
         first_name: current_user.first_name,
         last_name: current_user.last_name,
         email: current_user.email,
-        username: current_user.username,
         household_id: current_user.household_id,
         description: current_user.description,
         avatar_url: current_user.avatar_url

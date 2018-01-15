@@ -1,4 +1,4 @@
-class Api::V1::HouseholdsController < ApplicationController
+class HouseholdsController < ApplicationController
   before_action :set_household, only: [:show, :update, :destroy]
 
 
