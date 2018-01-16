@@ -45,8 +45,6 @@ ActiveRecord::Schema.define(version: 20180110162621) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    t.text "description"
-    t.string "avatar_url"
     t.integer "household_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

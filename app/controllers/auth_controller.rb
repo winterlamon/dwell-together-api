@@ -1,5 +1,4 @@
 class AuthController < ApplicationController
-  skip_before_action :authorized, only: [:create, :show]
 
   def create
     user = User.find_by(email: params[:email])
@@ -11,8 +10,8 @@ class AuthController < ApplicationController
         last_name: user.last_name,
         email: user.email,
         household_id: user.household_id,
-        description: user.description,
-        avatar_url: user.avatar_url,
+        # description: user.description,
+        # avatar_url: user.avatar_url,
         token: issue_token({id: user.id})
       }
     else
@@ -23,13 +22,14 @@ class AuthController < ApplicationController
   def show
     if current_user
       render json: {
-        id: current_user.id,
-        first_name: current_user.first_name,
-        last_name: current_user.last_name,
-        email: current_user.email,
-        household_id: current_user.household_id,
-        description: current_user.description,
-        avatar_url: current_user.avatar_url
+        id: user.id,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        email: user.email,
+        household_id: user.household_id,
+        # description: user.description,
+        # avatar_url: user.avatar_url,
+        token: issue_token({id: user.id})
       }
     else
       render json: {error: 'Invalid token'}, status: 401
