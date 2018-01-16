@@ -14,8 +14,11 @@ class HouseholdsController < ApplicationController
 
   def create
     @household = Household.new(household_params)
+    # @user = User.find(current_user.id)
+
 
     if @household.save
+      # @user.update(household_id: @household.id)
       render json: @household, status: :created, location: @household
     else
       render json: @household.errors, status: :unprocessable_entity
