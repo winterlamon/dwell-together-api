@@ -11,6 +11,6 @@ class User < ApplicationRecord
       message: "A valid email is required." }
   validates :password, presence: {message: "A password is required."}
 
-  # validates :avatar_url, allow_blank: true
+  validates :household_id, numericality: true, allow_nil: true
 
 end

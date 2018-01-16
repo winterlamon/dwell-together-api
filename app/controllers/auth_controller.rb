@@ -10,6 +10,7 @@ class AuthController < ApplicationController
         last_name: user.last_name,
         email: user.email,
         household: {
+          id: user.household.id,
           nickname: user.household.nickname,
           lists: user.household.lists,
           list_items: user.household.list_items,
@@ -32,6 +33,7 @@ class AuthController < ApplicationController
         last_name: current_user.last_name,
         email: current_user.email,
         household: {
+          id: user.household.id,
           nickname: current_user.household.nickname,
           lists: current_user.household.lists,
           list_items: current_user.household.list_items,
