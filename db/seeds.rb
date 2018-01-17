@@ -2,6 +2,7 @@ require 'faker'
 
 # sample households (5)
 
+Household.create(nickname: "Mom's House")
 Household.create(nickname: Faker::HarryPotter.unique.house)
 Household.create(nickname: Faker::HarryPotter.unique.house)
 Household.create(nickname: Faker::HarryPotter.unique.house)

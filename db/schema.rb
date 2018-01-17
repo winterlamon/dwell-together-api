@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20180110162621) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    t.integer "household_id"
+    t.integer "household_id", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

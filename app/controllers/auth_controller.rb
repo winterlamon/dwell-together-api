@@ -31,7 +31,7 @@ class AuthController < ApplicationController
         last_name: current_user.last_name,
         email: current_user.email,
         household: {
-          id: current_user.user.household.id,
+          id: current_user.household.id,
           nickname: current_user.household.nickname,
           lists: current_user.household.lists,
           list_items: current_user.household.list_items,
