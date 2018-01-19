@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   # validates :first_name, presence: {message: "Your first name is required."}
   # validates :last_name, presence: {message: "Your last name is required."}
+  validates :username, uniqueness: { case_sensitive: false, message: "An account with that username already exists."}
   validates :email, uniqueness: {message: "An account with that email already exists."}
       # , presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
       #     message: "A valid email is required." }
