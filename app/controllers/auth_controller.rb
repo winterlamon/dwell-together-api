@@ -10,6 +10,9 @@ class AuthController < ApplicationController
           last_name: user.last_name,
           username: user.username,
           email: user.email,
+          description: user.description,
+          avatar_url: user.avatar_url,
+          list_items: user.list_items,
           household: {
             id: user.household.id,
             nickname: user.household.nickname,
@@ -32,6 +35,9 @@ class AuthController < ApplicationController
         last_name: current_user.last_name,
         username: current_user.username,
         email: current_user.email,
+        description: current_user.description,
+        avatar_url: current_user.avatar_url,
+        list_items: current_user.list_items,
         household: {
           id: current_user.household.id,
           nickname: current_user.household.nickname,
