@@ -7,6 +7,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :password_digest
       t.integer :household_id, default: 1
+      t.text :description, default: ""
+      t.string :avatar_url, default: "https://material-components-web.appspot.com/images/animal3.svg"
       t.timestamps
     end
   end
