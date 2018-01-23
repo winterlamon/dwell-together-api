@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20180110162621) do
   create_table "list_items", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.datetime "due_date"
+    t.date "due_date"
     t.integer "user_id"
     t.integer "list_id"
     t.boolean "completed"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20180110162621) do
     t.string "email"
     t.string "password_digest"
     t.integer "household_id", default: 1
+    t.text "description"
+    t.string "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

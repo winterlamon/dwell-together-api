@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  before_create :default_values
 
   belongs_to :household, optional: true
   has_many :list_items
@@ -14,5 +15,11 @@ class User < ApplicationRecord
   # validates :password, presence: {message: "A password is required."}
 
   # validates :household_id, numericality: true, allow_nil: true
+
+  private
+    def default_values
+      self.description ||= ""
+      self.avatar_url ||= "https://material-components-web.appspot.com/images/animal3.svg"
+    end
 
 end
