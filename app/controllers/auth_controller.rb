@@ -2,7 +2,7 @@ class AuthController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-    
+
     if user && user.authenticate(params[:password])
         render json: {
           id: user.id,
@@ -18,7 +18,8 @@ class AuthController < ApplicationController
             nickname: user.household.nickname,
             lists: user.household.lists,
             list_items: user.household.list_items,
-            members: user.household.users
+            members: user.household.users,
+            household_key: user.household_key
           },
           token: issue_token({id: user.id})
         }
@@ -43,7 +44,8 @@ class AuthController < ApplicationController
           nickname: current_user.household.nickname,
           lists: current_user.household.lists,
           list_items: current_user.household.list_items,
-          members: current_user.household.users
+          members: current_user.household.users,
+          household_key: current_user.household.household_key
         },
         token: issue_token({id: current_user.id})
       }

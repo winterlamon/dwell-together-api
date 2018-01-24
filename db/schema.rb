@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20180110162621) do
     t.date "due_date"
     t.integer "user_id"
     t.integer "list_id"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20180110162621) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.integer "household_id", default: 1
+    t.integer "household_id"
     t.text "description"
     t.string "avatar_url"
     t.datetime "created_at", null: false

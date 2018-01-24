@@ -43,6 +43,6 @@ class HouseholdsController < ApplicationController
     end
 
     def household_params
-      params.require(:household).permit(:nickname)
+      params.require(:household).permit(:nickname, :household_key)
     end
 end

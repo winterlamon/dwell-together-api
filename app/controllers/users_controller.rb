@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(first_name: params['first_name'], last_name: params['last_name'], username: params['username'], email: params['email'], password: params['password'], description: params['description'], avatar_url: params['avatar_url'])
+    @user = User.new(first_name: params['first_name'], last_name: params['last_name'], username: params['username'], email: params['email'], password: params['password'], description: params['description'], avatar_url: params['avatar_url'], household_id: params['household_id'])
 
     if @user.save
       render json: @user, status: :created, location: @user
