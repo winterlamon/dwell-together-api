@@ -19,7 +19,6 @@ class AuthController < ApplicationController
             lists: user.household.lists,
             list_items: user.household.list_items,
             members: user.household.users,
-            household_key: user.household_key
           },
           token: issue_token({id: user.id})
         }
@@ -45,7 +44,6 @@ class AuthController < ApplicationController
           lists: current_user.household.lists,
           list_items: current_user.household.list_items,
           members: current_user.household.users,
-          household_key: current_user.household.household_key
         },
         token: issue_token({id: current_user.id})
       }
