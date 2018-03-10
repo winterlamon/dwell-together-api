@@ -30,7 +30,13 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    # byebug
     @list.destroy
+    list_items = ListItem.all.select{|list_item| list_item.list_id == params[:id].to_i}
+    list_items.each{|list_item| list_item.delete}
+    lists = List.all.select{|list| list.household_id == params[:household_id]}
+
+    render json: lists
   end
 
   private

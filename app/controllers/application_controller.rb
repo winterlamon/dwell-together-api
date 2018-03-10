@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
 # this will run before every single action gets called, make sure you skip_before_action in the appropriate places
 
   def issue_token(payload)
-   JWT.encode(payload, ENV['secret'], 'HS256')
+   JWT.encode(payload, ENV['SECRET'], 'HS256')
   end
 
   def current_user
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::API
 
   def decoded_token
     begin
-      JWT.decode(request.headers['Authorization'], ENV['secret'], true, { :algorithm => 'HS256' })
+      JWT.decode(request.headers['Authorization'], ENV['SECRET'], true, { :algorithm => 'HS256' })
     rescue JWT::DecodeError
      [{}]
     end
